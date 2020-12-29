@@ -19,8 +19,15 @@ public class Translator {
     public static void main(String[] args)  {
         try {
             Scanner in = new Scanner(new File(args[0]));
+            // :NOTE: # должно быть два файла со словарем и с текстом, который требуется перевести
+            // :NOTE: * не игнорируется регистр
+            // :NOTE: # Максиммально длины левой части, а не правой
+            // :NOTE: * обработка ошибок при разборе словаря
+
             while (in.hasNextLine()) {
                 String line = in.nextLine();
+
+
                 findTranslation(line);
             }
             formatter.close();
@@ -93,7 +100,7 @@ public class Translator {
     private static boolean severalTranslationOptions(String line) {
         int balanceOpen = 0;
         int balanceClose = 0;
-
+        // :NOTE: * добавление '<' и '>' нарушает формат словаря
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) == '|') {
                 for (int j = ++i; j < line.length(); j++) {
