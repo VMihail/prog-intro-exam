@@ -2,6 +2,11 @@ package shashki;
 
 import java.util.Scanner;
 
+// :NOTE: # нет случайного и эвристического игрока
+
+// :NOTE: # нет поддержки турнира
+// :NOTE: # фишка не съедается
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
